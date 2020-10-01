@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 01, 2020 at 10:23 AM
--- Server version: 10.4.6-MariaDB
--- PHP Version: 7.3.9
+-- Waktu pembuatan: 01 Okt 2020 pada 17.05
+-- Versi server: 10.4.14-MariaDB
+-- Versi PHP: 7.2.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -25,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_dosen`
+-- Struktur dari tabel `tb_dosen`
 --
 
 CREATE TABLE `tb_dosen` (
@@ -38,19 +37,29 @@ CREATE TABLE `tb_dosen` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_hari`
+-- Struktur dari tabel `tb_hari`
 --
 
 CREATE TABLE `tb_hari` (
   `kode_hari` int(11) NOT NULL,
-  `nama_hari` time NOT NULL,
+  `nama_hari` varchar(20) NOT NULL,
   `kode_prodi` char(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tb_hari`
+--
+
+INSERT INTO `tb_hari` (`kode_hari`, `nama_hari`, `kode_prodi`) VALUES
+(1, 'selasa', 'AR'),
+(2, 'Selasa', 'IF'),
+(3, 'jumat', 'TE'),
+(4, 'selasa', 'TIP');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_jadwal`
+-- Struktur dari tabel `tb_jadwal`
 --
 
 CREATE TABLE `tb_jadwal` (
@@ -65,7 +74,7 @@ CREATE TABLE `tb_jadwal` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_jam`
+-- Struktur dari tabel `tb_jam`
 --
 
 CREATE TABLE `tb_jam` (
@@ -77,7 +86,7 @@ CREATE TABLE `tb_jam` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_kelas`
+-- Struktur dari tabel `tb_kelas`
 --
 
 CREATE TABLE `tb_kelas` (
@@ -90,7 +99,7 @@ CREATE TABLE `tb_kelas` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_kuliah`
+-- Struktur dari tabel `tb_kuliah`
 --
 
 CREATE TABLE `tb_kuliah` (
@@ -105,7 +114,7 @@ CREATE TABLE `tb_kuliah` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_level`
+-- Struktur dari tabel `tb_level`
 --
 
 CREATE TABLE `tb_level` (
@@ -114,7 +123,7 @@ CREATE TABLE `tb_level` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tb_level`
+-- Dumping data untuk tabel `tb_level`
 --
 
 INSERT INTO `tb_level` (`kode_level`, `nama_level`) VALUES
@@ -125,7 +134,7 @@ INSERT INTO `tb_level` (`kode_level`, `nama_level`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_matkul`
+-- Struktur dari tabel `tb_matkul`
 --
 
 CREATE TABLE `tb_matkul` (
@@ -139,7 +148,7 @@ CREATE TABLE `tb_matkul` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_prodi`
+-- Struktur dari tabel `tb_prodi`
 --
 
 CREATE TABLE `tb_prodi` (
@@ -148,7 +157,7 @@ CREATE TABLE `tb_prodi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tb_prodi`
+-- Dumping data untuk tabel `tb_prodi`
 --
 
 INSERT INTO `tb_prodi` (`kode_prodi`, `Nama_prodi`) VALUES
@@ -167,7 +176,7 @@ INSERT INTO `tb_prodi` (`kode_prodi`, `Nama_prodi`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_ruang`
+-- Struktur dari tabel `tb_ruang`
 --
 
 CREATE TABLE `tb_ruang` (
@@ -178,7 +187,7 @@ CREATE TABLE `tb_ruang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tb_ruang`
+-- Dumping data untuk tabel `tb_ruang`
 --
 
 INSERT INTO `tb_ruang` (`kode_ruang`, `nama_ruang`, `keterangan`, `kode_prodi`) VALUES
@@ -188,7 +197,7 @@ INSERT INTO `tb_ruang` (`kode_ruang`, `nama_ruang`, `keterangan`, `kode_prodi`) 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_users`
+-- Struktur dari tabel `tb_users`
 --
 
 CREATE TABLE `tb_users` (
@@ -201,7 +210,7 @@ CREATE TABLE `tb_users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tb_users`
+-- Dumping data untuk tabel `tb_users`
 --
 
 INSERT INTO `tb_users` (`id_user`, `nama`, `user`, `pass`, `kode_level`, `kode_prodi`) VALUES
@@ -216,7 +225,7 @@ INSERT INTO `tb_users` (`id_user`, `nama`, `user`, `pass`, `kode_level`, `kode_p
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_waktu`
+-- Struktur dari tabel `tb_waktu`
 --
 
 CREATE TABLE `tb_waktu` (
@@ -231,89 +240,95 @@ CREATE TABLE `tb_waktu` (
 --
 
 --
--- Indexes for table `tb_dosen`
+-- Indeks untuk tabel `tb_dosen`
 --
 ALTER TABLE `tb_dosen`
   ADD PRIMARY KEY (`kode_dosen`);
 
 --
--- Indexes for table `tb_hari`
+-- Indeks untuk tabel `tb_hari`
 --
 ALTER TABLE `tb_hari`
   ADD PRIMARY KEY (`kode_hari`);
 
 --
--- Indexes for table `tb_jadwal`
+-- Indeks untuk tabel `tb_jadwal`
 --
 ALTER TABLE `tb_jadwal`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tb_jam`
+-- Indeks untuk tabel `tb_jam`
 --
 ALTER TABLE `tb_jam`
   ADD PRIMARY KEY (`kode_jam`);
 
 --
--- Indexes for table `tb_kelas`
+-- Indeks untuk tabel `tb_kelas`
 --
 ALTER TABLE `tb_kelas`
   ADD PRIMARY KEY (`kode_kelas`);
 
 --
--- Indexes for table `tb_kuliah`
+-- Indeks untuk tabel `tb_kuliah`
 --
 ALTER TABLE `tb_kuliah`
   ADD PRIMARY KEY (`kode_kuliah`);
 
 --
--- Indexes for table `tb_level`
+-- Indeks untuk tabel `tb_level`
 --
 ALTER TABLE `tb_level`
   ADD PRIMARY KEY (`kode_level`);
 
 --
--- Indexes for table `tb_matkul`
+-- Indeks untuk tabel `tb_matkul`
 --
 ALTER TABLE `tb_matkul`
   ADD PRIMARY KEY (`kode_matkul`);
 
 --
--- Indexes for table `tb_prodi`
+-- Indeks untuk tabel `tb_prodi`
 --
 ALTER TABLE `tb_prodi`
   ADD PRIMARY KEY (`kode_prodi`);
 
 --
--- Indexes for table `tb_ruang`
+-- Indeks untuk tabel `tb_ruang`
 --
 ALTER TABLE `tb_ruang`
   ADD PRIMARY KEY (`kode_ruang`);
 
 --
--- Indexes for table `tb_users`
+-- Indeks untuk tabel `tb_users`
 --
 ALTER TABLE `tb_users`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- Indexes for table `tb_waktu`
+-- Indeks untuk tabel `tb_waktu`
 --
 ALTER TABLE `tb_waktu`
   ADD PRIMARY KEY (`kode_waktu`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `tb_ruang`
+-- AUTO_INCREMENT untuk tabel `tb_hari`
+--
+ALTER TABLE `tb_hari`
+  MODIFY `kode_hari` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT untuk tabel `tb_ruang`
 --
 ALTER TABLE `tb_ruang`
   MODIFY `kode_ruang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `tb_users`
+-- AUTO_INCREMENT untuk tabel `tb_users`
 --
 ALTER TABLE `tb_users`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
