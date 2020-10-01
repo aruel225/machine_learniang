@@ -1,6 +1,6 @@
 <section class="content">
     <div class="card">
-        <div class="card-header">
+         <div class="card-header">
             <h2><span class="card-title"><b>Ruang</b></span></h2><br>
            <div style="margin-left:0px">
            <form class="form-inline">
