@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 01 Okt 2020 pada 17.05
+-- Waktu pembuatan: 09 Okt 2020 pada 19.54
 -- Versi server: 10.4.14-MariaDB
 -- Versi PHP: 7.2.33
 
@@ -54,7 +54,13 @@ INSERT INTO `tb_hari` (`kode_hari`, `nama_hari`, `kode_prodi`) VALUES
 (1, 'selasa', 'AR'),
 (2, 'Selasa', 'IF'),
 (3, 'jumat', 'TE'),
-(4, 'selasa', 'TIP');
+(4, 'selasa', 'TIP'),
+(5, 'Senin', 'IF'),
+(6, 'Rabu', 'IF'),
+(7, 'Kamis', 'IF'),
+(8, 'Jumat', 'IF'),
+(9, 'Sabtu', 'IF'),
+(10, 'Minggu', 'IF');
 
 -- --------------------------------------------------------
 
@@ -319,7 +325,7 @@ ALTER TABLE `tb_waktu`
 -- AUTO_INCREMENT untuk tabel `tb_hari`
 --
 ALTER TABLE `tb_hari`
-  MODIFY `kode_hari` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `kode_hari` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_ruang`
